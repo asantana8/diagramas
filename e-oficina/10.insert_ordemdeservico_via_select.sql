@@ -12,8 +12,9 @@ INSERT INTO `mydb`.`OrdemServico`
 `Equipes_idEquipes`,
 `Veiculos_idVeiculos`,
 `Veiculos_Clientes_idCliente`,
-`TipoServico_idTipoServico`)
-SELECT 1, 
+`TipoServico_idTipoServico`,
+`Pagamento_idPagamento`)
+SELECT 2, 
        SYSDATE(),
        'EM ANÁLISE',
        (date_add(now(), interval 2 day)),
@@ -26,6 +27,6 @@ SELECT 1,
        1,
        1,
        1,
-       2;
-
+       2,
+       1;
 

@@ -48,7 +48,7 @@ INSERT INTO `mydb`.`Clientes`
 `Telefone`,
 `Documento`)
 VALUES
-(140,
+(150,
 "Zeus",
 "8833335555",
 "12345678924");
@@ -70,7 +70,7 @@ INSERT INTO `mydb`.`Clientes`
 `Telefone`,
 `Documento`)
 VALUES
-(150,
+(160,
 "Zeus",
 "8833335555",
 "555555555");
@@ -81,7 +81,7 @@ INSERT INTO `mydb`.`Clientes`
 `Telefone`,
 `Documento`)
 VALUES
-(160,
+(170,
 "Zeus",
 "8833335555",
 "666666666");
@@ -92,7 +92,7 @@ INSERT INTO `mydb`.`Clientes`
 `Telefone`,
 `Documento`)
 VALUES
-(170,
+(180,
 "Zeus",
 "8833335555",
 "7777777777");

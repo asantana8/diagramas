@@ -12,7 +12,8 @@ INSERT INTO `mydb`.`OrdemServico`
 `Equipes_idEquipes`,
 `Veiculos_idVeiculos`,
 `Veiculos_Clientes_idCliente`,
-`TipoServico_idTipoServico`)
+`TipoServico_idTipoServico`,
+`Pagamento_idPagamento`)
 VALUES
 (900,
 sysdate(),
@@ -24,6 +25,7 @@ sysdate()+2,
 0,
 19.60,
 "S",
+1,
 1,
 1,
 1,
