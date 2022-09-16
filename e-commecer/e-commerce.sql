@@ -33,8 +33,8 @@ CREATE TABLE IF NOT EXISTS `ecom`.`CarteiraCliente` (
   `cliente_IdCliente` INT NOT NULL,
   `TipoCartao_idTipoCartao` INT NOT NULL,
   PRIMARY KEY (`idCarteiraCliente`, `cliente_IdCliente`, `TipoCartao_idTipoCartao`),
-  INDEX `fk_CarteiraCliente_cliente1_idx` (`cliente_IdCliente` ASC) VISIBLE,
-  INDEX `fk_CarteiraCliente_TipoCartao1_idx` (`TipoCartao_idTipoCartao` ASC) VISIBLE,
+  INDEX `fk_CarteiraCliente_cliente1_idx` (`cliente_IdCliente` ASC),
+  INDEX `fk_CarteiraCliente_TipoCartao1_idx` (`TipoCartao_idTipoCartao` ASC),
   CONSTRAINT `fk_CarteiraCliente_cliente1`
     FOREIGN KEY (`cliente_IdCliente`)
     REFERENCES `ecom`.`cliente` (`IdCliente`)
@@ -84,8 +84,8 @@ CREATE TABLE IF NOT EXISTS `ecom`.`Dipobiliza_Produtos` (
   `Fornecedor_idFornecedor` INT NOT NULL,
   `Produto_IdProduto` INT NOT NULL,
   PRIMARY KEY (`Fornecedor_idFornecedor`, `Produto_IdProduto`),
-  INDEX `fk_Fornecedor_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC) VISIBLE,
-  INDEX `fk_Fornecedor_has_Produto_Fornecedor_idx` (`Fornecedor_idFornecedor` ASC) VISIBLE,
+  INDEX `fk_Fornecedor_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC),
+  INDEX `fk_Fornecedor_has_Produto_Fornecedor_idx` (`Fornecedor_idFornecedor` ASC),
   CONSTRAINT `fk_Fornecedor_has_Produto_Fornecedor`
     FOREIGN KEY (`Fornecedor_idFornecedor`)
     REFERENCES `ecom`.`Fornecedor` (`idFornecedor`)
@@ -138,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `ecom`.`Pagamento` (
   `Ultimo_Vencimento` DATE NULL COMMENT 'Na camada de aplicacao calcular as datas intermediarias combinando o numero de parcelas com a primeira e ultima data de vencimento.',
   `TipoPagamento_idTipoPagamento` INT NOT NULL,
   PRIMARY KEY (`idPagamento`, `TipoPagamento_idTipoPagamento`),
-  INDEX `fk_Pagamento_TipoPagamento1_idx` (`TipoPagamento_idTipoPagamento` ASC) VISIBLE,
+  INDEX `fk_Pagamento_TipoPagamento1_idx` (`TipoPagamento_idTipoPagamento` ASC),
   CONSTRAINT `fk_Pagamento_TipoPagamento1`
     FOREIGN KEY (`TipoPagamento_idTipoPagamento`)
     REFERENCES `ecom`.`TipoPagamento` (`idTipoPagamento`)
@@ -173,8 +173,8 @@ CREATE TABLE IF NOT EXISTS `ecom`.`Produto_em_Estoque` (
   `Estoque_idEstoque` INT NOT NULL,
   `Quantidade` INT NOT NULL,
   PRIMARY KEY (`Produto_IdProduto`, `Estoque_idEstoque`),
-  INDEX `fk_Produto_has_Estoque_Estoque1_idx` (`Estoque_idEstoque` ASC) VISIBLE,
-  INDEX `fk_Produto_has_Estoque_Produto1_idx` (`Produto_IdProduto` ASC) VISIBLE,
+  INDEX `fk_Produto_has_Estoque_Estoque1_idx` (`Estoque_idEstoque` ASC),
+  INDEX `fk_Produto_has_Estoque_Produto1_idx` (`Produto_IdProduto` ASC) ,
   CONSTRAINT `fk_Produto_has_Estoque_Produto1`
     FOREIGN KEY (`Produto_IdProduto`)
     REFERENCES `ecom`.`Produto` (`IdProduto`)
@@ -198,8 +198,8 @@ CREATE TABLE IF NOT EXISTS `ecom`.`Produtos_Por_Vendedor` (
   `Produto_IdProduto` INT NOT NULL,
   `Quantidade` INT NULL,
   PRIMARY KEY (`Vendedor Agregado_idVendedor Agregado`, `Produto_IdProduto`),
-  INDEX `fk_Vendedor Agregado_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC) VISIBLE,
-  INDEX `fk_Vendedor Agregado_has_Produto_Vendedor Agregado1_idx` (`Vendedor Agregado_idVendedor Agregado` ASC) VISIBLE,
+  INDEX `fk_Vendedor Agregado_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC),
+  INDEX `fk_Vendedor Agregado_has_Produto_Vendedor Agregado1_idx` (`Vendedor Agregado_idVendedor Agregado` ASC),
   CONSTRAINT `fk_Vendedor Agregado_has_Produto_Vendedor Agregado1`
     FOREIGN KEY (`Vendedor Agregado_idVendedor Agregado`)
     REFERENCES `ecom`.`Vendedor_Agregado` (`idVendedor Agregado`)
@@ -224,8 +224,8 @@ CREATE TABLE IF NOT EXISTS `ecom`.`Relacao_Produto_Pedido` (
   `Qunatidade` INT NULL,
   `Relacao_Produto_Pedidocol` VARCHAR(45) NULL,
   PRIMARY KEY (`pedido_idPedido`, `Produto_IdProduto`),
-  INDEX `fk_pedido_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC) VISIBLE,
-  INDEX `fk_pedido_has_Produto_pedido1_idx` (`pedido_idPedido` ASC) VISIBLE,
+  INDEX `fk_pedido_has_Produto_Produto1_idx` (`Produto_IdProduto` ASC),
+  INDEX `fk_pedido_has_Produto_pedido1_idx` (`pedido_idPedido` ASC),
   CONSTRAINT `fk_pedido_has_Produto_pedido1`
     FOREIGN KEY (`pedido_idPedido`)
     REFERENCES `ecom`.`pedido` (`idPedido`)
@@ -326,7 +326,7 @@ CREATE TABLE IF NOT EXISTS `ecom`.`cliente` (
   `IdCarteira` INT NULL COMMENT 'Pode ter mais de uma forma de pagamentos.',
   `TipoIdentificao_idTipoIdentificao` INT NOT NULL,
   PRIMARY KEY (`IdCliente`, `TipoIdentificao_idTipoIdentificao`),
-  INDEX `fk_cliente_TipoIdentificao1_idx` (`TipoIdentificao_idTipoIdentificao` ASC) VISIBLE,
+  INDEX `fk_cliente_TipoIdentificao1_idx` (`TipoIdentificao_idTipoIdentificao` ASC),
   CONSTRAINT `fk_cliente_TipoIdentificao1`
     FOREIGN KEY (`TipoIdentificao_idTipoIdentificao`)
     REFERENCES `ecom`.`TipoIdentificao` (`idTipoIdentificao`)
